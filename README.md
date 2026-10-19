@@ -2,6 +2,12 @@
 
 一个可互动的夜色微光网站：星辰、萤火、月晕与极光，配以实时合成的环境音乐和音效。
 
+## 线上地址
+
+- **Cloudflare Pages**：<https://nocturne-fireflies.pages.dev/>
+- **GitHub Pages**：<https://glockleee.github.io/nocturne-fireflies/>
+- **GitHub 仓库**：<https://github.com/glockleee/nocturne-fireflies>
+
 ## 打开方式
 
 **方式一（最简单）**：双击 `index.html`，用 Chrome / Edge / Safari 打开。
@@ -55,5 +61,17 @@ js/scene.js         Canvas 星辰、萤火、涟漪、流星与交互
 - 支持 `prefers-reduced-motion`，会减少粒子并关闭装饰动画
 - 粒子数量、DPR（上限 2）按屏幕自适应，兼顾画质与性能
 - 静音模式进入：入口下方的「静音进入」，之后可随时开启声音
+
+## 部署
+
+```bash
+# 生成待部署目录
+mkdir dist
+cp -r index.html css js README.md robots.txt _headers .nojekyll dist/
+# Cloudflare Pages（需要先 wrangler login）
+wrangler pages deploy dist --project-name=nocturne-fireflies --branch=main
+```
+
+GitHub Pages 会在推送到 `main` 后自动构建。
 
 Made of stardust & sound · 2026
