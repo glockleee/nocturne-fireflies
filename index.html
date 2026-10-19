@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05070f" />
+  <meta name="description" content="星海萤光 · 一场可互动的夜色微光：星辰、萤火与极光，以及为你而奏的夜曲。" />
+  <title>星海萤光 · Nocturne for the Fireflies</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop stop-color='%23fff4d6'/%3E%3Cstop offset='.55' stop-color='%23ffd28a'/%3E%3Cstop offset='1' stop-color='%23ff9d5c'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='11' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="stage" id="stage">
+
+    <noscript>
+      <div class="nojs">请开启 JavaScript，才能进入这片星海。</div>
+    </noscript>
+
+    <!-- 天空 · 极光 -->
+    <div class="sky" aria-hidden="true">
+      <span class="blob blob--indigo"></span>
+      <span class="blob blob--teal"></span>
+      <span class="blob blob--violet"></span>
+      <span class="blob blob--rose"></span>
+      <span class="haze"></span>
+    </div>
+
+    <!-- 月 -->
+    <div class="moon" id="moon" aria-hidden="true">
+      <div class="moon__ring moon__ring--outer"></div>
+      <div class="moon__ring moon__ring--inner"></div>
+      <div class="moon__halo" id="moon-halo"></div>
+      <div class="moon__disc"></div>
+    </div>
+
+    <!-- 星辰 · 萤火 -->
+    <canvas id="scene" aria-label="夜空、星辰与萤火"></canvas>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark">✦</span>
+        <span class="brand__name">Nocturne</span>
+        <span class="brand__cn">夜之絮语</span>
+      </div>
+      <div class="topbar__right">
+        <time class="clock" id="clock">--:--</time>
+        <button class="sound" id="sound-toggle" type="button" aria-pressed="false" aria-label="开启或关闭声音" title="开启或关闭声音（M）">
+          <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="sound__label" id="sound-label">声音 · 关</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="hero">
+      <p class="hero__eyebrow">An Interactive Nocturne</p>
+      <h1 class="hero__title">
+        <span>星</span><span>海</span><span>萤</span><span>光</span>
+      </h1>
+      <p class="hero__sub">移动指尖，萤火会追随你；轻触夜空，让光为你绽放。</p>
+    </main>
+
+    <footer class="footer">
+      <p class="hints">
+        <span><kbd>移动</kbd>唤醒萤火</span>
+        <span><kbd>轻触</kbd>绽放微光</span>
+        <span><kbd>M</kbd>静音</span>
+      </p>
+      <p class="signature">Stardust &amp; Sound<span class="signature__dot">·</span>2026</p>
+    </footer>
+
+    <!-- 入场 -->
+    <div class="intro" id="intro">
+      <div class="intro__inner">
+        <p class="intro__kicker">Nightfall · 夜 幕 将 至</p>
+        <h2 class="intro__title">给夜晚一点微光</h2>
+        <p class="intro__text">戴上耳机，让星辰与萤火为你演奏。</p>
+        <button class="enter" id="enter" type="button">
+          <span class="enter__ring"></span>
+          <span class="enter__ring enter__ring--late"></span>
+          <span class="enter__star">✦</span>
+          <span class="enter__text">轻触开始</span>
+        </button>
+        <p class="intro__note">
+          <span>建议佩戴耳机</span>
+          <span class="intro__dot">·</span>
+          <button class="intro__silent" id="enter-silent" type="button">静音进入</button>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/scene.js"></script>
+</body>
+</html>
